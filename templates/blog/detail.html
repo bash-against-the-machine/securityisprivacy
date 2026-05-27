@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} — Security is Privacy{% endblock %}
+{% block nav_blog %}active{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <a href="{% url 'blog:list' %}" class="back-link">Back to Blog</a>
+        <h1 class="mt-2">{{ post.title }}</h1>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="detail-meta">
+                <span>{{ post.created_at|date:"F j, Y" }}</span>
+                <span class="mx-2">&mdash;</span>
+                <span>{{ post.author }}</span>
+            </div>
+            <div class="detail-body">
+                {{ post.body|linebreaks }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

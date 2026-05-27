@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}About — Security is Privacy{% endblock %}
+{% block nav_about %}active{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div class="container">
+        <h1>About</h1>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="about-section">
+        <h2 class="section-header">Who I Am</h2>
+        <p>
+            Welcome to <strong style="color:var(--accent)">SecurityisPrivacy</strong> — a resource dedicated to
+            cybersecurity education, practical how-to guides, and staying informed about the evolving threat landscape.
+        </p>
+        <p>
+            I believe that security knowledge shouldn't be locked behind paywalls or jargon. Whether you're hardening
+            your own systems, learning to think like an attacker, or just trying to protect your digital privacy —
+            this site is for you.
+        </p>
+
+        <h2 class="section-header mt-5">What You'll Find Here</h2>
+        <ul class="list-unstyled">
+            <li class="mb-2"><span style="color:var(--accent)">▸</span> <a href="{% url 'guides:list' %}" style="color:var(--text-primary); text-decoration:none;">How-To Guides</a> — practical, step-by-step walkthroughs on security topics</li>
+            <li class="mb-2"><span style="color:var(--accent)">▸</span> <a href="{% url 'blog:list' %}" style="color:var(--text-primary); text-decoration:none;">Blog</a> — opinions, deep dives, and analysis</li>
+            <li class="mb-2"><span style="color:var(--accent)">▸</span> <a href="{% url 'news:list' %}" style="color:var(--text-primary); text-decoration:none;">News</a> — curated security news and vulnerability updates</li>
+        </ul>
+
+        <h2 class="section-header mt-5">Philosophy</h2>
+        <p>
+            Privacy is not a luxury — it's a right. And security is how you exercise it. The tools, knowledge,
+            and awareness shared here are meant to empower individuals and organizations to take control of their
+            own digital safety.
+        </p>
+        <blockquote class="blockquote mt-4 ps-3" style="border-left: 3px solid var(--accent);">
+            <p style="color:var(--text-muted); font-style:italic;">"Security is not a product, but a process."</p>
+            <footer class="blockquote-footer" style="color:var(--text-muted);">Bruce Schneier</footer>
+        </blockquote>
+    </div>
+</div>
+{% endblock %}
