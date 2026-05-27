@@ -61,6 +61,17 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
+# Uploaded/media files
+media/
+media/*
+
+# Optional: local-only sqlite databases
+*.sqlite3
+
+# Optional: compiled static if you build them during deploy
+static_cdn/
+staticfiles/
+
 # Flask stuff:
 instance/
 .webassets-cache
@@ -216,3 +227,36 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+#Claude
+CLAUDE.md
+
+# Test / coverage
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Jupyter
+.ipynb_checkpoints
+
+# mypy and similar
+.mypy_cache/
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
