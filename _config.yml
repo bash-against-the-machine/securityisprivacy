@@ -1,0 +1,39 @@
+title: Security is Privacy
+description: Cybersecurity education, practical how-to guides, and security news.
+url: "https://securityisprivacy.com"
+baseurl: ""
+
+collections:
+  guides:
+    output: true
+    permalink: /guides/:slug/
+  news:
+    output: true
+    permalink: /news/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Admin"
+      nav_active: "blog"
+  - scope:
+      path: ""
+      type: "guides"
+    values:
+      layout: "guide"
+      nav_active: "guides"
+  - scope:
+      path: ""
+      type: "news"
+    values:
+      layout: "news"
+      nav_active: "news"
+
+permalink: /blog/:slug/
+
+markdown: kramdown
+kramdown:
+  input: GFM

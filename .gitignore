@@ -231,6 +231,13 @@ __marimo__/
 #Claude
 CLAUDE.md
 
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+
 # Test / coverage
 htmlcov/
 .tox/

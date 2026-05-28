@@ -1,0 +1,37 @@
+---
+layout: base
+title: "How-To Guides — Security is Privacy"
+nav_active: guides
+---
+<div class="page-header">
+    <div class="container">
+        <h1>How-To Guides</h1>
+    </div>
+</div>
+
+<div class="container pb-5">
+    {% assign all_guides = site.guides | where_exp: "g", "g.draft != true" | sort: "date" | reverse %}
+    {% if all_guides.size > 0 %}
+    <div class="row g-4">
+        {% for guide in all_guides %}
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 p-3">
+                <div class="card-body d-flex flex-column">
+                    <div class="d-flex gap-2 mb-2">
+                        {% if guide.category %}<span class="badge badge-category">{{ guide.category }}</span>{% endif %}
+                        {% if guide.difficulty %}<span class="badge badge-{{ guide.difficulty }}">{{ guide.difficulty | capitalize }}</span>{% endif %}
+                    </div>
+                    <h5 class="card-title">
+                        <a href="{{ guide.url }}">{{ guide.title }}</a>
+                    </h5>
+                    <p class="card-text flex-grow-1">{{ guide.excerpt | strip_html }}</p>
+                    <a href="{{ guide.url }}" class="btn btn-accent btn-sm mt-2 align-self-start">Read guide &rarr;</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-muted">No guides published yet. Check back soon.</p>
+    {% endif %}
+</div>

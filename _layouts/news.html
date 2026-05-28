@@ -1,0 +1,39 @@
+---
+layout: base
+---
+<div class="page-header">
+    <div class="container">
+        <a href="/news/" class="back-link">Back to News</a>
+        <h1 class="mt-2">{{ page.title }}</h1>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="detail-meta d-flex gap-3 flex-wrap align-items-center">
+                <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+                {% if page.source_name %}
+                <span>
+                    Source:
+                    {% if page.source_url %}
+                    <a href="{{ page.source_url }}" target="_blank" rel="noopener" class="source-link">{{ page.source_name }}</a>
+                    {% else %}
+                    {{ page.source_name }}
+                    {% endif %}
+                </span>
+                {% endif %}
+            </div>
+            <div class="detail-body">
+                {{ content }}
+            </div>
+            {% if page.source_url %}
+            <div class="mt-4">
+                <a href="{{ page.source_url }}" target="_blank" rel="noopener" class="btn btn-accent btn-sm">
+                    Read original source ↗
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

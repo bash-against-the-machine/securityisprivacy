@@ -1,0 +1,24 @@
+---
+layout: base
+---
+<div class="page-header">
+    <div class="container">
+        <a href="/guides/" class="back-link">Back to Guides</a>
+        <h1 class="mt-2">{{ page.title }}</h1>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="detail-meta d-flex gap-3 flex-wrap align-items-center">
+                <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+                {% if page.category %}<span class="badge badge-category">{{ page.category }}</span>{% endif %}
+                {% if page.difficulty %}<span class="badge badge-{{ page.difficulty }}">{{ page.difficulty | capitalize }}</span>{% endif %}
+            </div>
+            <div class="detail-body">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+</div>
