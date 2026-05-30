@@ -141,6 +141,7 @@ body {
 .badge-easy { background-color: rgba(0, 255, 65, 0.1); color: var(--accent); border: 1px solid var(--accent-dim); }
 .badge-medium { background-color: rgba(255, 165, 0, 0.1); color: var(--warning); border: 1px solid var(--warning); }
 .badge-hard { background-color: rgba(255, 68, 68, 0.1); color: var(--danger); border: 1px solid var(--danger); }
+.badge-cost { background-color: rgba(100, 160, 255, 0.1); color: #64a0ff; border: 1px solid #64a0ff; font-size: 0.7rem; letter-spacing: 0.5px; }
 
 /* Post/guide detail */
 .detail-meta {
@@ -252,4 +253,30 @@ footer .accent { color: var(--accent); }
 
 .back-link::before {
     content: "← ";
+}
+
+/* Guide prev/next navigation */
+.guide-nav {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+    gap: 1rem;
+}
+
+.guide-nav-prev,
+.guide-nav-next {
+    color: var(--accent-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.guide-nav-prev:hover,
+.guide-nav-next:hover {
+    color: var(--accent);
+}
+
+.guide-nav-next {
+    margin-left: auto;
 }

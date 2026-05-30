@@ -10,7 +10,7 @@ nav_active: guides
 </div>
 
 <div class="container pb-5">
-    {% assign all_guides = site.guides | where_exp: "g", "g.draft != true" | sort: "date" | reverse %}
+    {% assign all_guides = site.guides | where_exp: "g", "g.is_index == true" | where_exp: "g", "g.draft != true" | sort: "date" | reverse %}
     {% if all_guides.size > 0 %}
     <div class="row g-4">
         {% for guide in all_guides %}
@@ -20,6 +20,7 @@ nav_active: guides
                     <div class="d-flex gap-2 mb-2">
                         {% if guide.category %}<span class="badge badge-category">{{ guide.category }}</span>{% endif %}
                         {% if guide.difficulty %}<span class="badge badge-{{ guide.difficulty }}">{{ guide.difficulty | capitalize }}</span>{% endif %}
+                        {% if guide.cost %}<span class="badge badge-cost">{{ guide.cost }}</span>{% endif %}
                     </div>
                     <h5 class="card-title">
                         <a href="{{ guide.url }}">{{ guide.title }}</a>

@@ -6,7 +6,7 @@ baseurl: ""
 collections:
   guides:
     output: true
-    permalink: /guides/:slug/
+    permalink: /guides/:path/
   news:
     output: true
     permalink: /news/:slug/

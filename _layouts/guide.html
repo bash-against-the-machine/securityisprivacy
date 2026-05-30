@@ -4,6 +4,12 @@ layout: base
 <div class="page-header">
     <div class="container">
         <a href="/guides/" class="back-link">Back to Guides</a>
+        {% if page.guide_series %}
+            {% unless page.is_index %}
+                {% assign guide_index = site.guides | where: "guide_series", page.guide_series | where_exp: "g", "g.is_index == true" | first %}
+                {% if guide_index %}&nbsp;&nbsp;<a href="{{ guide_index.url }}" class="back-link">Back to Guide Overview</a>{% endif %}
+            {% endunless %}
+        {% endif %}
         <h1 class="mt-2">{{ page.title }}</h1>
     </div>
 </div>
@@ -15,10 +21,42 @@ layout: base
                 <span>{{ page.date | date: "%B %-d, %Y" }}</span>
                 {% if page.category %}<span class="badge badge-category">{{ page.category }}</span>{% endif %}
                 {% if page.difficulty %}<span class="badge badge-{{ page.difficulty }}">{{ page.difficulty | capitalize }}</span>{% endif %}
+                {% if page.cost %}<span class="badge badge-cost">{{ page.cost }}</span>{% endif %}
             </div>
             <div class="detail-body">
                 {{ content }}
             </div>
+
+            {% if page.guide_series %}
+                {% assign series_pages = site.guides | where: "guide_series", page.guide_series | sort: "part" %}
+                {% assign found_current = false %}
+                {% for p in series_pages %}
+                    {% if found_current %}
+                        {% unless next_guide %}{% assign next_guide = p %}{% endunless %}
+                    {% else %}
+                        {% if p.url == page.url %}
+                            {% assign found_current = true %}
+                        {% else %}
+                            {% assign prev_guide = p %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+
+                {% if prev_guide or next_guide %}
+                <div class="guide-nav mt-5 pt-4">
+                    {% if prev_guide %}
+                    <a href="{{ prev_guide.url }}" class="guide-nav-prev">
+                        &larr; {% if prev_guide.is_index %}Guide Overview{% else %}Previous: {{ prev_guide.title }}{% endif %}
+                    </a>
+                    {% endif %}
+                    {% if next_guide %}
+                    <a href="{{ next_guide.url }}" class="guide-nav-next">
+                        Next: {{ next_guide.title }} &rarr;
+                    </a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            {% endif %}
         </div>
     </div>
 </div>

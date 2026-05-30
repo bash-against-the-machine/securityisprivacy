@@ -23,7 +23,7 @@ nav_active: home
 
     <!-- Latest Guides -->
     <h2 class="section-header">How-To Guides</h2>
-    {% assign latest_guides = site.guides | where_exp: "g", "g.draft != true" | sort: "date" | reverse %}
+    {% assign latest_guides = site.guides | where_exp: "g", "g.is_index == true" | where_exp: "g", "g.draft != true" | sort: "date" | reverse %}
     {% if latest_guides.size > 0 %}
     <div class="row g-4 mb-5">
         {% for guide in latest_guides limit: 3 %}
@@ -33,6 +33,7 @@ nav_active: home
                     <div class="d-flex gap-2 mb-2">
                         {% if guide.category %}<span class="badge badge-category">{{ guide.category }}</span>{% endif %}
                         {% if guide.difficulty %}<span class="badge badge-{{ guide.difficulty }}">{{ guide.difficulty | capitalize }}</span>{% endif %}
+                        {% if guide.cost %}<span class="badge badge-cost">{{ guide.cost }}</span>{% endif %}
                     </div>
                     <h5 class="card-title">
                         <a href="{{ guide.url }}">{{ guide.title }}</a>
