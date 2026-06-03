@@ -243,7 +243,7 @@ hint.iwm.0.disabled="1"
 
 Hit `Esc` key and then type `:wq`.
 
-Now simply run the following command to poweroff your **pfSense**:
+Now simply run the following command to poweroff your **pfSense_Appliance**:
 
 ```
 poweroff
