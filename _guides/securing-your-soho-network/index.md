@@ -38,7 +38,7 @@ locked in to a single vendor at double the cost of this set up.
 - Once pfSense is installed, the mini PC will be refered to as **pfSense_Appliance**
 - The word **terminal** will refer to whatever terminal you're using in Linux (I prefer terminator) or Command Prompt or
 Powershell prompt if you're on Windows. I will not provide Windows commands so you can use ChatGPT or other AI chatbot to
-convert my commands to windows equivalent. I personally recommend that you install Ubuntu as WSL on your Windows to use instead
+convert my commands to Windows equivalent. I personally recommend that you install Ubuntu as WSL on your Windows to use instead
 - Instructions for a command that has a variable input will enclose the input in carrots like this: `command <variable_input>`
 - Input that is to be typed will be called out like this: `custom input to be typed`
 - A button to be clicked or drop down selection to be selected will be in bold: **Click** or **Select**

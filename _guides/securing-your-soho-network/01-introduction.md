@@ -3,7 +3,6 @@ title: "Securing Your Small/Home Office Network: Introduction"
 excerpt: "Why a flat network is dangerous and how segmentation with VLANs solves it."
 category: "Network Security"
 difficulty: "easy"
-cost: "$400-$500"
 date: 2026-05-28
 guide_series: securing-your-soho-network
 part: 1
@@ -134,3 +133,13 @@ purpose as they tend to excell in performance at their specific function versus 
 performance across their multiple functions.
 
 I'm specifically using 2 TP-Link 5-Port Gigabit Ethernet Easy Smart Switch model TL-SG105E ($25-$45 on Amazon).
+
+### Ethernet Cables
+
+When connecting your equipment using Ethernet cables, you need to be aware of what type of cables you're using. For example, if
+you connect your mini PC with pfSense to your 10G (10 Gps or 10 Gigabytes per second) port on the modem using a CAT 5 Ethernet
+cable, you are not going to get those speeds as CAT 5 is only rated to be guaranteed at 100 Mbps (100 Megabytes per second) and
+up to 1 Gbs under ideal conditions. My recommendation is to use CAT 5 Ethernet cables you probably have on hand to do the initial
+setup and testing, and then once you know the lengths of cables you need for your set up, replace them all with CAT 6, CAT 7,
+or CAT 8 Ethernet as they will support up to 10 Gbps speeds (for cable lengths of up to 120 ft for CAT 6 and longer distance for
+CAT 7) and 25 Gps for CAT 8. This way if you end up upgrading your equipment later you don’t have to worry about buying new cables.

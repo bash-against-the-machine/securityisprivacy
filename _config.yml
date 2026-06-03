@@ -34,6 +34,9 @@ defaults:
 
 permalink: /blog/:slug/
 
+exclude:
+  - venv
+
 markdown: kramdown
 kramdown:
   input: GFM
